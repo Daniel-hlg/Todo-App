@@ -1,0 +1,176 @@
+/* styles.css - global */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --danger: #ef4444;
+  --success: #10b981;
+  --border: #e6e9ef;
+  --shadow: 0 6px 18px rgba(32,33,36,0.06);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing: border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size:16px;
+}
+
+/* Layout */
+.app-container{
+  max-width:960px;
+  margin:28px auto;
+  padding:20px;
+  background:transparent;
+}
+
+/* Nav */
+nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:20px;
+}
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:8px;
+  transition:all .15s ease;
+  font-weight:600;
+}
+nav a:hover{ background:rgba(37,99,235,0.08); color:var(--accent) }
+
+/* Card */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid transparent;
+  cursor:pointer;
+  font-weight:600;
+  background:var(--accent);
+  color:white;
+  transition:transform .08s ease, box-shadow .08s ease;
+}
+.btn:active{ transform:scale(.99) }
+.btn.secondary{
+  background:transparent;
+  color:var(--accent);
+  border-color: rgba(37,99,235,0.12);
+}
+.btn.danger{
+  background:var(--danger);
+  border-color:transparent;
+}
+
+/* Form */
+.form-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin:12px 0;
+}
+input[type="text"], textarea{
+  flex:1;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background: #fafbfc;
+  outline:none;
+}
+input[type="text"]:focus, textarea:focus{ box-shadow:0 0 0 4px rgba(37,99,235,0.06); border-color:var(--accent) }
+
+/* Todo list */
+.todo-list{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.todo-item{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:linear-gradient(180deg,#fff,#fbfdff);
+}
+.todo-main{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.todo-title{
+  font-weight:700;
+}
+.todo-meta{
+  color:var(--muted);
+  font-size:13px;
+}
+.completed .todo-title{
+  text-decoration: line-through;
+  color: #9aa3b2;
+  font-weight:600;
+}
+
+/* Action buttons */
+.todo-actions{
+  display:flex;
+  gap:8px;
+}
+.icon-btn{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:transparent;
+  cursor:pointer;
+  font-weight:600;
+}
+.icon-btn:hover{ transform:translateY(-1px) }
+
+/* Small badges */
+.badge{
+  display:inline-block;
+  padding:6px 8px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
+.badge.pending{ background:#fff4e6; color:#92400e; border:1px solid rgba(249,205,133,0.5) }
+.badge.done{ background:#ecfdf5; color: #03674b; border:1px solid rgba(16,185,129,0.15) }
+
+/* Loader */
+.loader {
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:5px solid rgba(0,0,0,0.08);
+  border-top-color:var(--accent);
+  animation:spin 1s linear infinite;
+  margin:20px auto;
+}
+@keyframes spin { to { transform:rotate(360deg) } }
+
+/* Responsive */
+@media (max-width:640px){
+  .form-row{ flex-direction:column; align-items:stretch }
+  nav{flex-wrap:wrap}
+}
